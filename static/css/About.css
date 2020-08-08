@@ -1,0 +1,14 @@
+/* 5. About Styles
+------------------------------*/
+.tm-about-img-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 568px;
+  width: 100%;
+}
+.tm-about-img {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: -100;
+}
