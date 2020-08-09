@@ -281,6 +281,8 @@
         padding-top:0;
     }
 .copyright {
+    position: absolute;
+    left: 50px;
 	text-align: center;
 	margin-bottom: 15px;
 }

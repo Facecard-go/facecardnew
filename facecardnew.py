@@ -11,8 +11,9 @@ import cv2
 import sys
 import os
 import time #时间数据分析
-app = Flask(__name__)
-
+# app = Flask(__name__)
+currPath = sys.path[0]
+app = Flask(__name__, template_folder=currPath+'\\templates')
 @app.route('/',methods=['get','post'])
 def moren():
     print("index")
@@ -104,8 +105,91 @@ def zhuce():
     conn.close()
     return render_template("login_register.html")
 
+#人脸识别部分
+#人脸识别模型
+# face_cascade = cv2.CascadeClassifier(currPath+'\\haarcascade_frontalface_default.xml') # 默认模型
+# face_cascade = cv2.CascadeClassifier(currPath+'\\haarcascade_profileface.xml')         # 侧脸模型
+face_cascade = cv2.CascadeClassifier(currPath+'\\haarcascade_frontalface_alt2.xml')   # 正脸模型
+
+#如果文件不存在则创建
+if not os.path.exists('facesData'):
+    os.makedirs('facesData')
+class VideoCamera(object):
+    def __init__(self):
+        self.video = cv2.VideoCapture(0)
+
+    def __del__(self):
+        self.video.release()
+
+    def get_frame(self):
+        success, image = self.video.read()
+
+        # try:
+        faces = face_cascade.detectMultiScale(image, 1.3, 5)
+        for (x, y, w, h) in faces:
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            # cv2.imwrite("facesData/"+str(time.time())[:10]+ ".jpg", image[y-40:y+h+40, x-20:x+w+20])
+            cv2.imwrite("facesData/" + str(time.time())[:10] + ".jpg", gray[y - 40:y + h + 40, x - 20:x + w + 20])
+
+            cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+            cv2.waitKey(100)
+
+        # 因为opencv读取的图片并非jpeg格式，因此要用motion JPEG模式需要先将图片转码成jpg格式图片
+        ret, jpeg = cv2.imencode('.jpg', image)
+        return jpeg.tobytes()
 
 
+@app.route('/face')  # 进入人脸识别页面
+def face():
+    # 具体格式保存在index.html文件中
+    return render_template('face.html')
+
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        # 使用generator函数输出视频流， 每次请求输出的类型是image/jpeg
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+@app.route('/video_feed')  # 这个地址返回视频流响应
+def video_feed():
+    return Response(gen(VideoCamera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+
+@app.route('/getGoodList')
+# 获取商品列表
+def getGoodsList():
+    # 商品列表
+    goodsList = []
+    user = {'name': 'Miguel', 'url': '', 'img': '', 'money': ''}
+    goodsList.append(user)
+    return goodsList
+
+@app.route('/jinhuo')
+def show_index():
+
+    #网页标题
+    title = '进货列表'
+
+    #获取商品列表
+    goodsList = getGoodsList()
+
+    return render_template('jinhuo.html', title=title, list=goodsList)
+
+@app.route('/changxiao')
+def changxiao():
+    return render_template("changxiao.html")
+
+@app.route("/shouzhong")
+def shouzhong():
+    return render_template("shouzhong.html")
+
+@app.route("/guest")
+def guest():
+    return render_template("guest.html")
 
 if __name__ == '__main__':
     app.run()
