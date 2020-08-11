@@ -1,11 +1,11 @@
 #-*-coding:utf8-*-
 
 import os
-from dataSet import DataSet
+
 from keras.models import Sequential,load_model
 from keras.layers import Dense,Activation,Convolution2D,MaxPooling2D,Flatten,Dropout
 import numpy as np
-
+from dataSet import DataSet
 
 
 #建立一个基于CNN的人脸识别模型

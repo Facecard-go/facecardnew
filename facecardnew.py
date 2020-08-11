@@ -143,23 +143,30 @@ class Camera_reader(object):
                  else:
                      show_name = 'Stranger'
                  cv2.putText(frame, show_name, (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, 255, 2)  #显示名字
-                 frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)  #在人脸区域画一个正方形出来
+                 frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)  #在人脸区域画一个正方形
+                 # name_id = show_name
              cv2.imshow("Camera", frame)
+
+
 
         cameraCapture.release()
         cv2.destroyAllWindows()
+        return(show_name)
+        # return(show_name)   #返回识别的人脸id
 
 @app.route('/face')  # 进入人脸识别页面
 def face():
     # 具体格式保存在index.html文件中
-    # read_camera.read_camera()
+
+    # show_name = camera.build_camera()
+
     return render_template('face.html')
 
 def gen(camera):
     while True:
-        # frame = camera.get_frame()
-        # camera = Camera_reader()
         frame=camera.build_camera()
+
+        # print(frame)
         # 使用generator函数输出视频流， 每次请求输出的类型是image/jpeg
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')

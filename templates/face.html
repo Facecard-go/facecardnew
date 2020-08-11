@@ -1,3 +1,9 @@
+<!--
+本模块实现人脸识别前端显示功能
+author:许如昕
+create date:2020-8-9
+update date:
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -107,7 +113,29 @@
         </div>
          </header>
        <!-- header-end -->
-    <h1>Face recognition---Facecard</h1>
-    <img src="{{ url_for('video_feed') }}">
+
+
+    <main>
+        <div class="single-slider slider-height d-flex align-items-center"
+                        style="background-image:url(../static/images/face_back.jpg)">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-xl-4 col-lg-8">
+                        <div class="slider-content">
+                             <form action="face" method="get">
+                                <input type = "submit" name="show_name" value = "again">
+                             </form>
+                            <span data-animation="fadeInLeft" data-delay=".3s">Face recognition</span>
+                            <h1 data-animation="fadeInLeft" data-delay=".5s">HI</h1>
+                            <p data-animation="fadeInLeft" data-delay=".7s">请面对摄像头</p>
+                            <h2 data-animation="fadeInLeft" data-delay=".8s">摄像头将自动获取您的id</h2>
+                            <h2 data-animation="fadeInLeft" data-delay=".8s">同时您将获得积分记录</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <img src="{{ url_for('video_feed') }}">
   </body>
 </html>

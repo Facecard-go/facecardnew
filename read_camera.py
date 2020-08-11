@@ -14,9 +14,9 @@ class Camera_reader(object):
 
 
     def build_camera(self):
-        #opencv文件中人脸级联文件的位置，用于帮助识别图像或者视频流中的人脸
-        face_cascade = cv2.CascadeClassifier(r'E:\facecardnew\facecardnew\haarcascade_frontalface_default.xml')
-        #读取dataset数据集下的子文件夹名称
+        #opencv文件中人脸模型文件的位置，用于帮助识别图像或者视频流中的人脸
+        face_cascade = cv2.CascadeClassifier(r'E:\facecardnew\haarcascade_frontalface_default.xml')
+        #读取数据集下的子文件夹名称
         name_list = read_name_list(r'E:\cut-face')
 
         #打开摄像头并开始读取画面
@@ -38,11 +38,15 @@ class Camera_reader(object):
                  cv2.putText(frame, show_name, (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, 255, 2)  #显示名字
                  frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)  #在人脸区域画一个正方形出来
              cv2.imshow("Camera", frame)
-
         cameraCapture.release()
         cv2.destroyAllWindows()
+        return(show_name)
+
 def read_camera():
         camera = Camera_reader()
-        camera.build_camera()
+        a=camera.build_camera()
+        print(a)
+
+# read_camera()
 
 
