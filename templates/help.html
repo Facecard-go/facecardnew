@@ -1,15 +1,9 @@
-<!--
-本模块实现人脸识别前端显示功能
-author:许如昕
-create date:2020-8-9
-update date:
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
       <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Welcome to Facecard</title>
+        <title>帮助文档</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- CSS here -->
@@ -60,7 +54,7 @@ update date:
                 <div class="row">
                     <div class="col-xl-3 col-lg-2 d-flex align-items-center">
                         <div class="logo">
-                            <a href="help"><img src="../static/images/logo.png" width="180px"  alt="" /></a>
+                            <a href="#"><img src="../static/images/logo.png" width="180px"  alt="" /></a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-7">
@@ -113,29 +107,48 @@ update date:
         </div>
          </header>
        <!-- header-end -->
+     <div class="headImg" align="center">
+     <h4> 一、产品介绍：</h4>
+        <br/>
+        <p style="text-align: left;display: inline-block;margin-left: 145px">
+            &nbsp; &nbsp;1）<b>人脸按钮</b>，可以开始收集您的顾客人脸信息，与扫码商品建立联系并存储到您的账户中。<br/>
+            <br/>
+            &nbsp; &nbsp;2）<b>季节按钮</b>，通过您账户中存储的信息，帮助您生成个性化数据分析，帮助您得到不同季节应该怎么调整比例。<br/>
+            <br/>
+            &nbsp; &nbsp;3）<b>畅销按钮</b>，通过您账户中存储的信息，帮助您生成个性化数据分析，帮助您得到全年，您商铺中最畅销的几类产品。<br/>
+            <br/>
+            &nbsp; &nbsp;4）<b>受众按钮</b>，通过顾客的购买信息，帮助您进行分类，得到个性化数据分析，帮助您得到不同受众的比例，让您根据受众数据选择新的商品。<br/>
+            <br/>
+            &nbsp; &nbsp;5）<b>顾客按钮</b>，根据您收集的顾客信息，帮您生成顾客画像，让您更方便的管理顾客。<br/>
+            <br/>
+            &nbsp; &nbsp;6）<b>进货按钮</b>，帮助您查看您的进货信息。<br/></p>
+        <br/>
+        <br/>
+     <hr width=100% size=3 color="#C0D9D9" alingn=center  />
+     <br/>
+     <br/>
 
-
-    <main>
-        <div class="single-slider slider-height d-flex align-items-center"
-                        style="background-image:url(../static/images/face_back.jpg)">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-xl-4 col-lg-8">
-                        <div class="slider-content">
-                             <form action="face" method="get">
-                                <input type = "submit" name="show_name" value = "again">
-                             </form>
-                            <span data-animation="fadeInLeft" data-delay=".3s">Face recognition</span>
-                            <h1 data-animation="fadeInLeft" data-delay=".5s">HI</h1>
-                            <p data-animation="fadeInLeft" data-delay=".7s">请面对摄像头</p>
-                            <h2 data-animation="fadeInLeft" data-delay=".8s">摄像头将自动获取您的id</h2>
-                            <h2 data-animation="fadeInLeft" data-delay=".8s">同时您将获得积分记录</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-        <img src="{{ url_for('video_feed') }}">
-  </body>
+     <h4>二、使用介绍：</h4>
+        <br/>
+        <p style="text-align: left;display: inline-block;">
+            &nbsp; &nbsp;1）点击主页的<b>注册登录</b>，进入个人页面。<br/>
+            <br/>
+            &nbsp; &nbsp;2）进入个人主页，点击<b>人脸按钮</b>，将识别会员id,并为其购物记录进行积分。<br/>
+            <br/>
+            &nbsp; &nbsp;3）进入个人主页，点击<b>季节按钮</b>，在搜索框中输入您想查询的商品ID，您将得到该商品四个季度销量的柱状图。<br/>
+            <br/>
+            &nbsp; &nbsp;4）进入个人主页，点击<b>畅销按钮</b>，在搜索框中输入商品类别ID，您将得到销售记录中销量高位的商品分布。<br/>
+            <br/>
+            &nbsp; &nbsp;5）进入个人主页，点击<b>受众按钮</b>，可告知您的店铺受众比例分布饼图和受众年龄分布。<br/>
+            <br/>
+            &nbsp; &nbsp;6）进入个人主页，点击<b>顾客按钮</b>，实现店铺会员制度，您可通过输入会员id，得到其量身推荐商品并查看其积分记录<br/>
+            <br/>
+            &nbsp; &nbsp;7）进入个人主页，点击<b>进货按钮</b>，会跳转到您的进货页面，帮助您实时了解进货情况。<br/></p><div/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+     </div>
+    </body>
 </html>

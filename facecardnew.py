@@ -1,11 +1,12 @@
+'''
+本模块为项目路由，包含部分功能实现
+'''
 from flask import Flask,render_template,request,flash,Response
 import  pymysql
 import read_camera
 # import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-# import exercise
-# import exercise1
 from gevent.pywsgi import WSGIServer
 import time
 import cv2
@@ -14,6 +15,10 @@ import os
 from train_model import Model
 from read_data import read_name_list
 import time #时间数据分析
+import jijie
+import exercise
+import user
+from flask import jsonify
 # app = Flask(__name__)
 currPath = sys.path[0]
 app = Flask(__name__, template_folder=currPath+'\\templates')
@@ -208,9 +213,42 @@ def shouzhong():
 @app.route("/guest")
 def guest():
     return render_template("guest.html")
+'''
+本模块实现畅销页面的前后端交互
+'''
+@app.route('/show2',methods=['get','post'])
+def showCX():
+    print("hello_CX")
+    catelogeid = request.values.get("xiao")
+    result1 = exercise.xiaoliang(catelogeid)[0]
+    result2 = exercise.xiaoliang(catelogeid)[1]
+    print("catelogeid:%s"%(catelogeid))
+    print("result1:%s,result2:%s"%(result1,result2))
+    return jsonify({"bb":result1,"cc":result2})
+    # return render_template("line-simple.html",x=result1,y=result2,z=type(result1_json))
+'''
+本模块实现季节页面的前后端交互
+'''
+@app.route('/show1',methods=['get','post'])
+def showJijie():
+    cateloge_id=request.values.get("abc")
+    jijie_tu=jijie.jijie(cateloge_id)
+    print("cateloge_id:%s" % (cateloge_id))
+    print("jijie_tu:%s"%jijie_tu)
+    return jsonify({"aa":jijie_tu})
 
+@app.route('/help',methods=['get','post'])
+def help():
+    return render_template("help.html")
+'''
+本模块实现顾客页面的前后端交互
+'''
+@app.route('/showuser',methods=['get','post'])
+def showuser():
+    user_id=request.values.get("user_id")
+    return  user.tuijian(user_id)
 if __name__ == '__main__':
-    # app.run()
+    app.run()
     http_server = WSGIServer(('127.0.0.1', 5000), app)
     print("* Running on http://127.0.0.1:5000/ ")
     http_server.serve_forever()

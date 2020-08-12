@@ -15,6 +15,9 @@ update date:2020-8-7
         <title>季节查询</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../static/js/jquery-3.4.1.min.js"></script>
+        <script src="../static/js/echarts.min.js"></script>
+        <script src="../static/js/controller.js"></script>
         <style>
         .btn-box {
             width: 520px;
@@ -82,6 +85,27 @@ update date:2020-8-7
                 opacity: 0;
             }
         }
+        #Jijietu{
+            height: 50%;
+            width: 35%;
+            position: absolute;
+            background-color: white;
+            right: 5%;
+            top: 75%;
+            }
+        #show_t{
+        background-color: red;
+        border-color: red;
+        color: rgba(255, 255, 255, 0.9);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        text-shadow: none;
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+        opacity: .3;
+        }
     </style>
 		<!-- CSS here -->
         <link rel="stylesheet" href="../static/css/bootstrap.min.css">
@@ -98,6 +122,7 @@ update date:2020-8-7
 	    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	    <link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
     </head>
     <body>
        <!-- header-start -->
@@ -131,7 +156,7 @@ update date:2020-8-7
                 <div class="row">
                     <div class="col-xl-3 col-lg-2 d-flex align-items-center">
                         <div class="logo">
-                            <a href="#"><img src="../static/images/logo.png" width="180px" alt="" /></a>
+                            <a href="help"><img src="../static/images/logo.png" width="180px" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-7">
@@ -200,8 +225,6 @@ update date:2020-8-7
                     </div>
                 </div>
             </div>
-           <!--测试一个代码-->
-           <!--测试代码结束-->
             <!-- breadcrumb-area-end -->
         <div class="newsletter-area pt-120">
                 <div class="container">
@@ -210,11 +233,10 @@ update date:2020-8-7
                             <div class="col-xl-6 col-lg-7 mb-30">
                                 <div class="single-newsletters ">
                                     <div  class="shop-widget">
-                                        <form action="sousuo_id" method="get" class="shop-search">
-                                        <input type="text" placeholder="输入商品ID....">
-                                        <button><i class="fa fa-search" onclick="sousuo_id();jijie(cateloge_id)")></i></button>
-{#                                            <!--img src="{{ url_for('static/test.png')}}"-->#}
-                                        </form>
+
+                                        <input type="text" name = "cateloge_id" id="cateloge_id" placeholder="输入商品ID....">
+                                        <button type="button" value="查询" id="show_t"><i class="fa fa-search" >查询</i></button>
+
                                     </div>
                                     <div class="btn-box">
                                         <div class="box">
@@ -256,7 +278,9 @@ update date:2020-8-7
                     </div>
                 </div>
             </div>
+
      </main>
+<div id="Jijietu" style="width: 600px;height:400px;"></div>
        <!-- footer-start -->
         <footer>
             <div class="footer-area pt-80 pb-120">
@@ -336,5 +360,52 @@ update date:2020-8-7
         <script src="../static/js/jquery.magnific-popup.min.js"></script>
         <script src="../static/js/plugins.js"></script>
         <script src="../static/js/main.js"></script>
+        <script src="../static/js/controller.js"></script>
+        <script src="../static/js/Huatu.js"></script>
+<script type="text/javascript">
+var dom = document.getElementById("Jijietu");
+var ec_Jijie = echarts.init(dom);
+var app = {};
+ec_Jijie_option = null;
+ec_Jijie_option = {
+    color: ['#3398DB'],
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['第一季度','第二季度','第三季度','第四季度'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '直接访问',
+            type: 'bar',
+            barWidth: '60%',
+            data: []
+        }
+
+    ]
+};
+    ec_Jijie.setOption(ec_Jijie_option, true);
+       </script>
     </body>
 </html>

@@ -6,48 +6,108 @@ update date:
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>受众页面</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- CSS here -->
-        <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="../static/css/animate.min.css">
-        <link rel="stylesheet" href="../static/css/magnific-popup.css">
-        <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="../static/css/themify-icons.css">
-        <link rel="stylesheet" href="../static/css/dripicons.css">
-        <link rel="stylesheet" href="../static/css/meanmenu.css">
-        <link rel="stylesheet" href="../static/css/slick.css">
-        <link rel="stylesheet" href="../static/css/main.css">
-        <link rel="stylesheet" href="../static/css/responsive.css">
-	    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
-	    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	    <link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-     <!-- header-start -->
-       <header>
-        <div class="header-top-area pl-55 pr-55 d-none d-lg-block">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 d-none d-lg-block">
-                        <div class="header-info">
-                            <span><i class="dripicons-phone"></i> Call : 12345678909</span>
-                            <span><i class="dripicons-mail"></i> e-mail:taoka@.com</span>
-                        </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>受众页面</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/css/dripicons.css">
+    <link rel="stylesheet" href="../static/css/meanmenu.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/responsive.css">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+    <style>
+        #shouzhong {
+            height: 60%;
+            width: 40%;
+            position: absolute;
+            background-color: white;
+            right: 50%;
+            top: 40%;
+        }
+
+        #sz_title {
+            color: #6f6f6f;
+            float: left;
+            font-weight: bold;
+            left: -10px;
+            padding: 0 6px 0 10px;
+            position: relative;
+        }
+
+        #sj_fx {
+            height: 60%;
+            width: 40%;
+
+            position: absolute;
+            right: 10%;
+            top: 30%;
+        }
+
+        #sj_sd {
+            color: #6a667b;
+          font-size: 12px;
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 1px;
+          margin-bottom: 10px;
+        }
+        #sj_1{
+          margin: 0;
+          line-height: 1.2;
+          letter-spacing: -2px;
+          margin-bottom: 15px;
+          font-size: 36px;
+        }
+        #sj_2{
+            font-size: 15px;
+            color:#0b0b0b;
+            letter-spacing: 3px;
+        }
+        #sj_3{
+            color:#0b0b0b;
+            font-size: 15px;
+            letter-spacing: 3px;
+        }
+        #sj_4{
+            color:red;
+           font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+<!-- header-start -->
+<header>
+    <div class="header-top-area pl-55 pr-55 d-none d-lg-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                    <div class="header-info">
+                        <span><i class="dripicons-phone"></i> Call : 12345678909</span>
+                        <span><i class="dripicons-mail"></i> e-mail:taoka@.com</span>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
-                            <div class="header-right d-none d-lg-block">
-                                <div class="header-right f-right ">
-                                    <div class="header-lang  pos-rel f-right">
-                                    <div class="lang-icon">
-                                        <i class="dripicons-bookmark"></i>
-                                        <a href="personal">个人主页<i class="dripicons-chevron-down"></i></a>
-                                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="header-right d-none d-lg-block">
+                        <div class="header-right f-right ">
+                            <div class="header-lang  pos-rel f-right">
+                                <div class="lang-icon">
+                                    <i class="dripicons-bookmark"></i>
+                                    <a href="personal">个人主页<i class="dripicons-chevron-down"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -55,65 +115,127 @@ update date:
                 </div>
             </div>
         </div>
-        <div id="sticky-header" class="main-menu-area pl-55 pr-55">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-2 d-flex align-items-center">
-                        <div class="logo">
-                            <a href="#"><img src="../static/images/logo.png" width="180px"  alt="" /></a>
-                        </div>
+    </div>
+    <div id="sticky-header" class="main-menu-area pl-55 pr-55">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2 d-flex align-items-center">
+                    <div class="logo">
+                        <a href="help"><img src="../static/images/logo.png" width="180px" alt=""/></a>
                     </div>
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="main-menu text-center">
-                            <nav id="mobile-menu">
-                                <ul>
-                                    <li><a href="personal">主页</a></li>
-                                    <li><a href="face">人脸</a></li>
-                                    <li><a href="season">季节</a></li>
-                                    <li><a href="changxiao">畅销</a></li>
-                                    <li><a href="shouzhong">受众</a></li>
-                                    <li><a href="guest">顾客</a></li>
-                                    <li><a href="jinhuo">进货</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3">
-                        <div class="header-2-right f-right d-none d-md-none d-lg-block">
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <div class="main-menu text-center">
+                        <nav id="mobile-menu">
                             <ul>
-                                <li>
-                                    <ul class="minicart">
-                                        <li>
-                                            <div class="del-icon">
-                                                <a href="#">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="personal">主页</a></li>
+                                <li><a href="face">人脸</a></li>
+                                <li><a href="season">季节</a></li>
+                                <li><a href="changxiao">畅销</a></li>
+                                <li><a href="shouzhong">受众</a></li>
+                                <li><a href="guest">顾客</a></li>
+                                <li><a href="jinhuo">进货</a></li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
-                    <div class="col-12">
-                        <div class="mobile-menu"></div>
+                </div>
+                <div class="col-xl-3 col-lg-3">
+                    <div class="header-2-right f-right d-none d-md-none d-lg-block">
+                        <ul>
+                            <li>
+                                <ul class="minicart">
+                                    <li>
+                                        <div class="del-icon">
+                                            <a href="#">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+                <div class="col-12">
+                    <div class="mobile-menu"></div>
                 </div>
             </div>
         </div>
-        <div class="extra-info">
-            <div class="close-icon">
-                <button>
-                    <i class="far fa-window-close"></i>
-                </button>
-            </div>
-            <div class="logo-side mb-30">
-
-            </div>
+    </div>
+    <div class="extra-info">
+        <div class="close-icon">
+            <button>
+                <i class="far fa-window-close"></i>
+            </button>
         </div>
-         </header>
-       <!-- header-end -->
-    <h1>受众界面</h1>
-    这是受众的part<br>
-  </body>
+        <div class="logo-side mb-30">
+
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+<br>
+<h1 id="sz_title">&nbsp&nbsp&nbsp请查看受众人群分布比例</h1>
+<div id="shouzhong"></div>
+<div id="sj_fx">
+    <ul id="sj_sd">
+        facecard analysis report
+    </ul>
+    <h1 id="sj_1">受众分析</h1><br>
+    <HR align=center width=300 color=#987cb9SIZE=1>
+    <p id="sj_2">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp左侧饼图显示的是您的店铺近期销售对象的年龄分布，我们将购买人群分为三个区间，其中青少年设定在12~17岁之间，
+    青年设定在18~45岁之间，老年在46岁以上。</p>
+    <p id="sj_3">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp您的顾客情况：青少年人群占比<span id="sj_4">8.89%</span>青年人群占比<span id="sj_4">49.04%</span>老年人群占比<span id="sj_4">42.07%</span></p>
+</div>
+
+
+        <script type="text/javascript">
+            var SZ = document.getElementById("shouzhong");
+            var shouzhong = echarts.init(SZ);
+            var aaa = {};
+            ec_SZ_option = null;
+            ec_SZ_option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 10,
+                    data: ['青少年', '青年', '老年']
+                },
+                series: [
+                    {
+                        name: '查看數量',
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            {value: 842, name: '青少年'},
+                            {value: 4644, name: '青年'},
+                            {value: 3984, name: '老年'}
+                        ]
+                    }
+                ]
+            };
+
+            if (ec_SZ_option && typeof ec_SZ_option === "object") {
+                shouzhong.setOption(ec_SZ_option, true);
+            }
+        </script>
+</body>
 </html>

@@ -1,4 +1,9 @@
-#-*-coding:utf8-*-
+'''
+本模块实现对以获取的人脸识别数据集进行处理
+author:许如昕
+create date:2020-8-4
+update date:2020-8-10
+'''
 
 from read_data import read_file
 from sklearn.model_selection import train_test_split

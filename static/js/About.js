@@ -1,3 +1,9 @@
+/**
+本模块为ajax请求
+author:原也
+create date:2020-8-10
+update date:2020-8-12
+**/
 (function($) {
 
 	"use strict";
