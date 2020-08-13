@@ -231,9 +231,7 @@ def changxiao():
 def shouzhong():
     return render_template("shouzhong.html")
 
-@app.route("/guest")
-def guest():
-    return render_template("guest.html")
+
 '''
 本模块实现畅销页面的前后端交互
 author:原也
@@ -279,9 +277,16 @@ create date:2020-8-5
 update date:2020-8-13
 '''
 @app.route('/showuser',methods=['get','post'])
-def showuser():
-    user_id=request.values.get("user_id")
-    return  user.tuijian(user_id)
+def show():
+    print("hello_user")
+    user__id = request.values.get("user__id")
+    print("user__id:%s"%(user__id))
+    huifu=user.tuijian(user__id)
+    print("huifu:%s"%(huifu))
+    return jsonify({"dd":huifu})
+@app.route("/guest")
+def guest():
+    return render_template("guest.html")
 
 if __name__ == '__main__':
     app.run()

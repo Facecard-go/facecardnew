@@ -20,8 +20,22 @@ $("#show3").click(function () {
         }
 })
     })
-
-
+$("#user_search").click(function () {
+    var user__id=$("#user__id").val()
+    // alert(user__id)
+    $.ajax({
+        url:"/showuser",
+        type:"post",
+        data:{"user__id":user__id},
+        success:function(datas){
+            console.log(datas)
+            abcd=datas['dd']
+            alert(abcd)
+        },
+        error:function () {
+        }
+})
+    })
 
 
     $("#show_t").click(function () {
@@ -41,4 +55,3 @@ $("#show3").click(function () {
         })
         })
 
-//定时器

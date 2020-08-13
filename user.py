@@ -1,7 +1,7 @@
 import pymysql
 '''
-本模块实现传输图片进行人脸识别（只在后端）
-author:许如昕
+本模块实现客户推荐商品和积分功能
+author:刘益争
 create date:2020-8-5
 update date:2020-8-11
 '''
