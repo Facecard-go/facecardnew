@@ -1,5 +1,10 @@
 import pymysql
-
+'''
+本模块实现传输图片进行人脸识别（只在后端）
+author:许如昕
+create date:2020-8-5
+update date:2020-8-11
+'''
 def tuijian(user_id): # 要查询的用户id
     conn = pymysql.connect(host='139.219.8.186',
                            port=3306,
@@ -46,4 +51,3 @@ def tuijian(user_id): # 要查询的用户id
             fanhui = "为该用户推荐的商品类别id为：" + str(recommend[0])+"、"+str(recommend[1])+"、"+str(recommend[2])
 
         return str(fanhui+"\n该用户的积分为:"+str(jifen))
-# print(tuijian("378753"))

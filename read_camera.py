@@ -1,10 +1,13 @@
-# -*- coding:utf-8 -*-
 
-# 调用摄像头识别
 import cv2
 from train_model import Model
 from read_data import read_name_list
-
+'''
+本模块实现调用摄像头进行人脸识别功能
+author:许如昕
+create date:2020-8-5
+update date:2020-8-11
+'''
 class Camera_reader(object):
     #在初始化camera的时候建立模型，并加载已经训练好的模型
     def __init__(self):

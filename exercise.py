@@ -1,10 +1,10 @@
+import pymysql
 '''
 本模块为畅销功能的数据分析
 author:刘益争
 create date:2020-8-2
 update date:2020-8-11
 '''
-import pymysql
 def xiaoliang(cateloge_id): # 要查询的商品类型代码
     conn = pymysql.connect(host='139.219.8.186',
                            port=3306,

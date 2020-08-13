@@ -1,16 +1,15 @@
-#-*-coding:utf8-*-
-
-
 import os
 import cv2
 import numpy as np
-
 from read_img import endwith
 
-#输入一个文件路径，对其下的每个文件夹下的图片读取，并对每个文件夹给一个不同的Label
-#返回一个img的list,返回一个对应label的list,返回一下有几个文件夹（有几种label)
-
-def read_file(path):
+'''
+本模块实现人脸识别数据集读取
+author:许如昕
+create date:2020-8-5
+update date:2020-8-11
+'''
+def read_file(path):# 输入一个文件路径，对其下的每个文件夹下的图片读取，并对每个文件夹给一个不同的Label
     img_list = []
     label_list = []
     dir_counter = 0
@@ -41,8 +40,6 @@ def read_name_list(path):
     for child_dir in os.listdir(path):
         name_list.append(child_dir)
     return name_list
-
-
 
 if __name__ == '__main__':
     img_list,label_lsit,counter = read_file(r'E:/cut-face')

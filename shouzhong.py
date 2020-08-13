@@ -1,14 +1,15 @@
+
+import inline as inline
+import xlrd
+import xlwt
+import pandas as pd
+import matplotlib.pyplot as plt
 '''
 本模块为受众分析，实现对顾客进行年龄和性别分析
 author:武岳豪
 create date:2020-8-7
 update date:2020-8-10
 '''
-import inline as inline
-import xlrd
-import xlwt
-import pandas as pd
-import matplotlib.pyplot as plt
 def read_excel():
     # 打开文件
     workBook = xlrd.open_workbook('../facecardnew/sj.csv')

@@ -1,5 +1,8 @@
 '''
 本模块为项目路由，包含部分功能实现
+author:淘卡团队（详细分工下文有注释）
+create date:2020-7-28
+update date:2020-8-13
 '''
 from flask import Flask,render_template,request,flash,Response
 import  pymysql
@@ -50,6 +53,12 @@ def autumn():
 @app.route('/winter')
 def winter():
     return render_template("winter.html")
+'''
+本模块实现登录功能
+author:原也
+create date:2020-7-29
+update date:2020-8-9
+'''
 @app.route('/denglu',methods=['get','post'])
 def denglu():
     print("hello_denglu")
@@ -81,7 +90,12 @@ def denglu():
         conn.close()
         return render_template("personal.html",users=result)
 
-#这里是连接虚拟机数据库的代码
+'''
+本模块实现注册功能
+author:原也
+create date:2020-7-29
+update date:2020-8-9
+'''
 @app.route("/zhuce" ,methods=["get","post"])
 def zhuce():
     print("hello_zhuce")
@@ -113,7 +127,12 @@ def zhuce():
     conn.close()
     return render_template("login_register.html")
 #################################################人脸识别################################################
-#人脸识别部分
+'''
+本模块实现人脸识别功能
+author:许如昕
+create date:2020-8-1
+update date:2020-8-10
+'''
 
 # face_cascade = cv2.CascadeClassifier(currPath+'\\haarcascade_frontalface_alt2.xml')   # 正脸模型
 
@@ -147,12 +166,10 @@ class Camera_reader(object):
                      show_name = name_list[label]
                  else:
                      show_name = 'Stranger'
-                 cv2.putText(frame, show_name, (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, 255, 2)  #显示名字
+                 cv2.putText(frame, show_name, (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1, 255, 2)  #显示label
                  frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)  #在人脸区域画一个正方形
                  # name_id = show_name
              cv2.imshow("Camera", frame)
-
-
 
         cameraCapture.release()
         cv2.destroyAllWindows()
@@ -161,27 +178,28 @@ class Camera_reader(object):
 
 @app.route('/face')  # 进入人脸识别页面
 def face():
-    # 具体格式保存在index.html文件中
-
     # show_name = camera.build_camera()
-
     return render_template('face.html')
 
 def gen(camera):
     while True:
         frame=camera.build_camera()
-
-        # print(frame)
-        # 使用generator函数输出视频流， 每次请求输出的类型是image/jpeg
+            # 使用generator函数输出视频流， 每次请求输出的类型是image/jpeg
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
-@app.route('/video_feed')  # 这个地址返回视频流响应
+@app.route('/video_feed')  # 返回视频流响应
 def video_feed():
     return Response(gen(Camera_reader()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 ######################################人脸识别有关part结束~~######################################################
+'''
+本模块实现展示进货列表功能
+author:高万崧
+create date:2020-8-3
+update date:2020-8-9
+'''
 @app.route('/getGoodList')
 # 获取商品列表
 def getGoodsList():
@@ -201,6 +219,9 @@ def show_index():
     goodsList = getGoodsList()
 
     return render_template('jinhuo.html', title=title, list=goodsList)
+'''
+进货列表结束
+'''
 
 @app.route('/changxiao')
 def changxiao():
@@ -215,6 +236,9 @@ def guest():
     return render_template("guest.html")
 '''
 本模块实现畅销页面的前后端交互
+author:原也
+create date:2020-8-5
+update date:2020-8-12
 '''
 @app.route('/show2',methods=['get','post'])
 def showCX():
@@ -228,6 +252,9 @@ def showCX():
     # return render_template("line-simple.html",x=result1,y=result2,z=type(result1_json))
 '''
 本模块实现季节页面的前后端交互
+author:原也
+create date:2020-8-5
+update date:2020-8-12
 '''
 @app.route('/show1',methods=['get','post'])
 def showJijie():
@@ -236,17 +263,26 @@ def showJijie():
     print("cateloge_id:%s" % (cateloge_id))
     print("jijie_tu:%s"%jijie_tu)
     return jsonify({"aa":jijie_tu})
-
+'''
+本模块实现帮助文档页面跳转
+author:原也
+create date:2020-8-4
+update date:2020-8-11
+'''
 @app.route('/help',methods=['get','post'])
 def help():
     return render_template("help.html")
 '''
 本模块实现顾客页面的前后端交互
+author:刘益争
+create date:2020-8-5
+update date:2020-8-13
 '''
 @app.route('/showuser',methods=['get','post'])
 def showuser():
     user_id=request.values.get("user_id")
     return  user.tuijian(user_id)
+
 if __name__ == '__main__':
     app.run()
     http_server = WSGIServer(('127.0.0.1', 5000), app)

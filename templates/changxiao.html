@@ -1,53 +1,87 @@
 <!--
-本模块
-author:
-create date:
-update date:
+本模块为畅销页面
+author:原也 刘益争
+create date:2020-8-7
+update date:2020-8-13
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>畅销页面</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- CSS here -->
-        <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="../static/css/animate.min.css">
-        <link rel="stylesheet" href="../static/css/magnific-popup.css">
-        <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="../static/css/themify-icons.css">
-        <link rel="stylesheet" href="../static/css/dripicons.css">
-        <link rel="stylesheet" href="../static/css/meanmenu.css">
-        <link rel="stylesheet" href="../static/css/slick.css">
-        <link rel="stylesheet" href="../static/css/main.css">
-        <link rel="stylesheet" href="../static/css/responsive.css">
-	    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
-	    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	    <link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-     <!-- header-start -->
-       <header>
-        <div class="header-top-area pl-55 pr-55 d-none d-lg-block">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 d-none d-lg-block">
-                        <div class="header-info">
-                            <span><i class="dripicons-phone"></i> Call : 12345678909</span>
-                            <span><i class="dripicons-mail"></i> e-mail:taoka@.com</span>
-                        </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>畅销页面</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+    <!-- CSS here -->
+    <style>
+        {# 畅销图位置#}
+        #CX_tu {
+            height: 60%;
+            width: 45%;
+            position: absolute;
+            background-color: white;
+            right: 30%;
+            top: 35%;
+        }
+
+        {#查询框样式#}
+        #cx_1 {
+            text-align: center;
+        }
+
+        {#查询畅销商品种类id按钮样式#}
+        #show3 {
+            background-color: #dc0010;
+            border-color: #dc0010;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: none;
+            -webkit-transition-property: all;
+            transition-property: all;
+            -webkit-box-shadow: 0 2px 0 #dc0010, 0 3px 3px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 0 #dc0010, 0 3px 3px rgba(0, 0, 0, 0.2);
+            -webkit-transition-duration: .3s;
+            transition-duration: .3s;
+            opacity: .3;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/css/dripicons.css">
+    <link rel="stylesheet" href="../static/css/meanmenu.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/responsive.css">
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/css/templatemo_style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!-- header-start -->
+<header>
+    <div class="header-top-area pl-55 pr-55 d-none d-lg-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                    <div class="header-info">
+                        <span><i class="dripicons-phone"></i> Call : 12345678909</span>
+                        <span><i class="dripicons-mail"></i> e-mail:taoka@.com</span>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
-                            <div class="header-right d-none d-lg-block">
-                                <div class="header-right f-right ">
-                                    <div class="header-lang  pos-rel f-right">
-                                    <div class="lang-icon">
-                                        <i class="dripicons-bookmark"></i>
-                                        <a href="personal">个人主页<i class="dripicons-chevron-down"></i></a>
-                                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="header-right d-none d-lg-block">
+                        <div class="header-right f-right ">
+                            <div class="header-lang  pos-rel f-right">
+                                <div class="lang-icon">
+                                    <i class="dripicons-bookmark"></i>
+                                    <a href="personal">个人主页<i class="dripicons-chevron-down"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -55,65 +89,76 @@ update date:
                 </div>
             </div>
         </div>
-        <div id="sticky-header" class="main-menu-area pl-55 pr-55">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-2 d-flex align-items-center">
-                        <div class="logo">
-                            <a href="#"><img src="../static/images/logo.png" width="180px"  alt="" /></a>
-                        </div>
+    </div>
+    <div id="sticky-header" class="main-menu-area pl-55 pr-55">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2 d-flex align-items-center">
+                    <div class="logo">
+                        <a href="help"><img src="../static/images/logo.png" width="180px" alt=""/></a>
                     </div>
-                    <div class="col-xl-6 col-lg-7">
-                        <div class="main-menu text-center">
-                            <nav id="mobile-menu">
-                                <ul>
-                                    <li><a href="personal">主页</a></li>
-                                    <li><a href="face">人脸</a></li>
-                                    <li><a href="season">季节</a></li>
-                                    <li><a href="changxiao">畅销</a></li>
-                                    <li><a href="shouzhong">受众</a></li>
-                                    <li><a href="guest">顾客</a></li>
-                                    <li><a href="jinhuo">进货</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3">
-                        <div class="header-2-right f-right d-none d-md-none d-lg-block">
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <div class="main-menu text-center">
+                        <nav id="mobile-menu">
                             <ul>
-                                <li>
-                                    <ul class="minicart">
-                                        <li>
-                                            <div class="del-icon">
-                                                <a href="#">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="personal">主页</a></li>
+                                <li><a href="face">人脸</a></li>
+                                <li><a href="season">季节</a></li>
+                                <li><a href="changxiao">畅销</a></li>
+                                <li><a href="shouzhong">受众</a></li>
+                                <li><a href="guest">顾客</a></li>
+                                <li><a href="jinhuo">进货</a></li>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
-                    <div class="col-12">
-                        <div class="mobile-menu"></div>
+                </div>
+                <div class="col-xl-3 col-lg-3">
+                    <div class="header-2-right f-right d-none d-md-none d-lg-block">
+                        <ul>
+                            <li>
+                                <ul class="minicart">
+                                    <li>
+                                        <div class="del-icon">
+                                            <a href="#">
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+                <div class="col-12">
+                    <div class="mobile-menu"></div>
                 </div>
             </div>
         </div>
-        <div class="extra-info">
-            <div class="close-icon">
-                <button>
-                    <i class="far fa-window-close"></i>
-                </button>
-            </div>
-            <div class="logo-side mb-30">
-
-            </div>
+    </div>
+    <div class="extra-info">
+        <div class="close-icon">
+            <button>
+                <i class="far fa-window-close"></i>
+            </button>
         </div>
-         </header>
-       <!-- header-end -->
-    <h1>畅销界面</h1>
-    这是畅销的part<br>
-  </body>
+        <div class="logo-side mb-30">
+
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+<h1>畅销界面</h1>
+<div id="cx_1">
+    <input type="text" name="catelogeid" id="catelogeid" placeholder="输入商品ID....">
+    <button type="button" value="查询" id="show3">查询<i class="fa fa-search"></i></button>
+</div>
+<div id="CX_tu" style="width:600px;height:400px;"></div>
+
+<script src="../static/js/main.js"></script>
+<script src="../static/js/Huatu.js"></script>
+<script src="../static/js/2.js"></script>
+
+
+</body>
 </html>

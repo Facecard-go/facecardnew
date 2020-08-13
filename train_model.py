@@ -1,14 +1,15 @@
-#-*-coding:utf8-*-
-
 import os
-
 from keras.models import Sequential,load_model
 from keras.layers import Dense,Activation,Convolution2D,MaxPooling2D,Flatten,Dropout
 import numpy as np
 from dataSet import DataSet
 
-
-#建立一个基于CNN的人脸识别模型
+'''
+本模块实现基于CNN的人脸识别模型的模型训练，并保存模型
+author:许如昕
+create date:2020-8-5
+update date:2020-8-11
+'''
 class Model(object):
     FILE_PATH = "./modell/face.model.h5"   #模型进行存储和读取的地方
 
@@ -58,11 +59,11 @@ class Model(object):
         self.model.add(Activation('softmax'))
         self.model.summary()
 
-    #进行模型训练的函数，具体的optimizer、loss可以进行不同选择
+    #进行模型训练的函数
     def train_model(self):
         self.model.compile(
-            optimizer='adam',  #有很多可选的optimizer，例如RMSprop,Adagrad，你也可以试试哪个好，我个人感觉差异不大
-            loss='categorical_crossentropy',  #你可以选用squared_hinge作为loss看看哪个好
+            optimizer='adam',
+            loss='categorical_crossentropy',
             metrics=['accuracy'])
 
         #epochs、batch_size为可调的参数，epochs为训练多少轮、batch_size为每次训练多少个样本
@@ -83,7 +84,7 @@ class Model(object):
         print('Model Loaded.')
         self.model = load_model(file_path)
 
-    #需要确保输入的img得是灰化之后（channel =1 )且 大小为IMAGE_SIZE的人脸图片
+    #输入的img得是灰化之后（channel =1 )且 大小为IMAGE_SIZE的人脸图片
     def predict(self,img):
         img = img.reshape((1, 1, self.IMAGE_SIZE, self.IMAGE_SIZE))
         img = img.astype('float32')

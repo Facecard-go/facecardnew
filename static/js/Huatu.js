@@ -1,5 +1,10 @@
+/**
+本模块为ajax请求
+author:原也
+create date:2020-8-10
+update date:2020-8-13
+**/
 $("#show3").click(function () {
-    alert("hello")
     var xiao=$("#catelogeid").val()
     $.ajax({
         url:"/show2",
@@ -7,8 +12,8 @@ $("#show3").click(function () {
         data:{"xiao":xiao},
         success:function(datas){
             console.log(datas)
-            ec_CX_option.xAxis[0].data=datas['bb']
-            ec_CX_option.series[0].data=datas['cc']
+            ec_CX_option.xAxis.data=datas['bb']
+            ec_CX_option.series.data=datas['cc']
             ec_ChangX.setOption(ec_CX_option)
         },
         error:function () {

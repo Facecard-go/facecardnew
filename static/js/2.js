@@ -16,9 +16,9 @@ var dom = document.getElementById("CX_tu");
         yAxis: {
             type: 'value'
         },
-        series: [{
+        series: {
             data: [],
             type: 'line'
-        }]
+        }
     };
     ec_ChangX.setOption(ec_CX_option, true);

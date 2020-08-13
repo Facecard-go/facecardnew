@@ -1,10 +1,16 @@
-#-*-coding:utf8-*-
+
 
 import os
 import cv2
 
 
 #根据输入的文件夹绝对路径，将该文件夹下的所有指定suffix的文件读取存入一个list,该list的第一个元素是该文件夹的名字
+'''
+本模块实现读取人脸文件
+author:许如昕
+create date:2020-8-5
+update date:2020-8-11
+'''
 def readAllImg(path,*suffix):
     try:
 
@@ -39,7 +45,4 @@ if __name__ == '__main__':
 
   result = readAllImg(r"E:/cut-face/yy",'.pgm')
   print (result[0])
-  # cv2.namedWindow("Image")
-  # cv2.imshow("Image", result[1])
-  # cv2.waitKey(0)
-  # cv2.destroyAllWindows()
+

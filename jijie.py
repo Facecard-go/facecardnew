@@ -1,12 +1,11 @@
+import pymysql
+import time #时间数据分析
 '''
 本模块为季节的搜索功能的后端代码，实现数据处理
 author:刘益争
 create date:2020-8-4
 update date:2020-8-10
 '''
-import pymysql
-import time #时间数据分析
-
 def jijie(cateloge_id):#要查询的商品种类代码
     conn = pymysql.connect(host='139.219.8.186',
                            port=3306,

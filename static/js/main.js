@@ -1,4 +1,4 @@
-(function ($) {
+$(function () {
 "use strict";
 
 // meanmenu
@@ -322,4 +322,4 @@ function basicmap() {
 if ($('#contact-map').length != 0) {
 	google.maps.event.addDomListener(window, 'load', basicmap);
 }
-})(jQuery);
+});

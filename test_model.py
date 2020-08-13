@@ -1,10 +1,12 @@
-#-*-coding:utf8-*-
-# 传入照片识别
-
 from read_data import read_name_list,read_file
 from train_model import Model
 import cv2
-
+'''
+本模块实现传输图片进行人脸识别（只在后端）
+author:许如昕
+create date:2020-8-5
+update date:2020-8-11
+'''
 def test_onePicture(path):
     model= Model()
     model.load()

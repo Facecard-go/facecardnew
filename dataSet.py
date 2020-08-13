@@ -1,17 +1,18 @@
-'''
-本模块实现对以获取的人脸识别数据集进行处理
-author:许如昕
-create date:2020-8-4
-update date:2020-8-10
-'''
 
 from read_data import read_file
 from sklearn.model_selection import train_test_split
 from keras.utils import np_utils
 import random
 
-#建立一个用于存储和格式化读取训练数据的类
+
+'''
+本模块实现对以获取的人脸识别数据集进行处理
+author:许如昕
+create date:2020-8-4
+update date:2020-8-10
+'''
 class DataSet(object):
+    # 建立一个用于存储和格式化读取训练数据的类
    def __init__(self,path):
        self.num_classes = None
        self.X_train = None

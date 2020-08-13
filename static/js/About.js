@@ -1,5 +1,5 @@
 /**
-本模块为ajax请求
+本模块为ajax请求（已作废）
 author:原也
 create date:2020-8-10
 update date:2020-8-12
